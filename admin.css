@@ -1,0 +1,3 @@
+.fila{display:flex;gap:.6rem;flex-wrap:wrap}.kpi{flex:1 1 140px;background:var(--bg);border:2px solid var(--line);border-radius:var(--r);padding:1rem}.kpi b{font:800 2rem 'Bricolage Grotesque'}
+table{width:100%;border-collapse:collapse;font-size:.9rem}td,th{padding:.5rem;border-bottom:1px solid var(--line);text-align:left}.tabla{overflow-x:auto}
+.panel{max-width:980px}textarea.codigo{font-family:ui-monospace,Consolas,monospace;min-height:12rem}.aviso{background:var(--bg);border-left:4px solid var(--sol);padding:.6rem 1rem}

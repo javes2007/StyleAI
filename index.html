@@ -1,116 +1,14 @@
-<!DOCTYPE html>
-<html lang="es" data-tema="claro">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#E6007A">
-<title>Asesor de Imagen</title>
-<link rel="manifest" href="manifest.json">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=DM+Sans:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="css/global.css">
-</head>
-<body>
-<header class="top">
-  <button class="logo" data-ir="inicio" data-mov="logo">Asesor<span>de</span>Imagen</button>
-  <nav>
-    <button id="btnTema" class="icono" data-mov="tema" aria-label="Cambiar modo claro u oscuro">◐</button>
-    <button id="btnEntrar" class="btn" data-ir="auth" data-mov="entrar">Entrar</button>
-    <button id="btnPerfil" class="btn suave" data-ir="perfil" data-mov="perfil" hidden>Mi perfil</button>
-  </nav>
-</header>
-
+<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow"><title>Panel · Asesor de Imagen</title>
+<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/admin.css"></head>
+<body><header class="top"><span class="logo">Panel<span>·</span>Admin</span><nav><button id="btnTema" class="icono" aria-label="Modo claro u oscuro">◐</button><button id="btnSalir" class="btn suave" hidden>Salir</button></nav></header>
 <main>
-<section data-vista="inicio">
-  <div class="hero">
-    <h1 data-mov="titulo">Tu piel, tu rostro y tu clima ya saben qué te queda bien.</h1>
-    <p data-mov="texto">Sube una foto de cuerpo completo. La IA la analiza al instante y te dice qué colores usar, qué cortes te favorecen y cómo mejorar tu imagen.</p>
-    <div class="paleta-viva" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <button class="btn grande" data-ir="auth" data-mov="cta">Crear mi cuenta gratis</button>
-  </div>
-  <div class="como">
-    <h2>Cómo funciona</h2>
-    <ol class="pasos">
-      <li data-mov="paso1"><h3>Crea tu cuenta</h3><p>Con tu correo, o con Google o Facebook. Tarda un minuto.</p></li>
-      <li data-mov="paso2"><h3>Sube tu foto</h3><p>De cuerpo completo, con buena luz y sin filtros. Dinos si eres hombre o mujer y de qué ciudad eres.</p></li>
-      <li data-mov="paso3"><h3>Recibe tu asesoría</h3><p>Paleta de tu tono de piel, colores de ropa, escaneo facial, cortes de pelo y tipo de cabello, ajustados al clima de tu ciudad.</p></li>
-    </ol>
-    <p class="nota">Tu foto se analiza y se descarta: no la guardamos. <a href="privacidad.html">Ver privacidad</a></p>
-  </div>
-</section>
-
-<section data-vista="auth" hidden class="caja">
-  <div class="tabs" role="tablist">
-    <button class="tab on" data-modo="login">Iniciar sesión</button>
-    <button class="tab" data-modo="registro">Crear cuenta</button>
-  </div>
-  <form id="formAuth" novalidate>
-    <label id="rowNombre" hidden>Nombre<input id="nombre" autocomplete="name" maxlength="80"></label>
-    <label>Usuario (tu correo)<input type="email" id="correo" autocomplete="email" required></label>
-    <label>Contraseña
-      <span class="campo"><input type="password" id="clave" autocomplete="current-password" minlength="8" required>
-      <button type="button" class="ojo" aria-label="Mostrar contraseña">👁</button></span>
-    </label>
-    <label class="check" id="rowAcepto" hidden><input type="checkbox" id="acepto"> Acepto la <a href="privacidad.html" target="_blank">política de privacidad</a></label>
-    <p id="msgAuth" class="msg" role="alert"></p>
-    <button class="btn grande" id="btnAuth">Iniciar sesión</button>
-    <button type="button" class="link" id="btnOlvide">Olvidé mi contraseña</button>
-  </form>
-  <div class="sep">o continúa con</div>
-  <div class="sociales">
-    <button class="btn suave" id="btnGoogle">Google</button>
-    <button class="btn suave" id="btnFacebook">Facebook</button>
-  </div>
-</section>
-
-<section data-vista="asesor" hidden class="caja ancha">
-  <h2>Tu asesoría de imagen</h2>
-  <form id="formAnalisis">
-    <label>Foto de cuerpo completo, sin filtro y con buena luz
-      <input type="file" id="foto" accept="image/jpeg,image/png,image/webp" required></label>
-    <img id="preview" alt="Vista previa de tu foto" hidden>
-    <label>Soy
-      <select id="genero" required><option value="">Elige una opción</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option></select></label>
-    <label>¿De dónde eres? (ciudad, país)<input id="ciudad" placeholder="Montería, Colombia" required maxlength="80"></label>
-    <label>Dónde vas a estar
-      <select id="lugar"><option>Día a día</option><option>Trabajo u oficina</option><option>Evento o fiesta</option><option>Playa o calor</option><option>Frío o montaña</option></select></label>
-    <label class="check"><input type="checkbox" id="pelo"> Analizar también mi tipo de pelo (liso, ondulado, rizado…)</label>
-    <p id="msgAn" class="msg" role="alert"></p>
-    <button class="btn grande" id="btnAn">Analizar mi imagen</button>
-  </form>
-  <div id="resultado" hidden></div>
-</section>
-
-<section data-vista="perfil" hidden class="caja">
-  <h2>Mi perfil y estilo</h2>
-  <form id="formPerfil">
-    <label>Nombre<input id="pNombre" maxlength="60"></label>
-    <label>Ciudad por defecto<input id="pCiudad" maxlength="80"></label>
-    <label>Estilo que prefieres
-      <select id="pEstilo"><option>Casual</option><option>Formal</option><option>Urbano</option><option>Deportivo</option><option>Elegante</option></select></label>
-    <label>Tema
-      <select id="pTema"><option value="claro">Claro</option><option value="oscuro">Oscuro</option></select></label>
-    <button class="btn">Guardar cambios</button>
-    <button type="button" class="btn suave" id="btnSalir">Cerrar sesión</button>
-  </form>
-  <h3>Escríbenos</h3>
-  <form id="formSol">
-    <select id="sTipo"><option>Soporte</option><option>Sugerencia</option><option>Borrar mis datos</option></select>
-    <textarea id="sMsg" rows="3" maxlength="1000" placeholder="Cuéntanos qué necesitas" required></textarea>
-    <input id="sTrampa" tabindex="-1" autocomplete="off" class="trampa" aria-hidden="true">
-    <button class="btn suave">Enviar solicitud</button><p id="msgSol" class="msg"></p>
-  </form>
-</section>
-</main>
-
-<div id="cookies" class="cookies" hidden>
-  <p>Usamos cookies necesarias (sesión y tema). Las de estadísticas solo si las aceptas. <a href="privacidad.html">Más info</a></p>
-  <button class="btn suave" data-ck="min">Solo necesarias</button><button class="btn" data-ck="all">Aceptar todas</button>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
-<script src="js/config.js"></script>
-<script src="js/app.js"></script>
-<script src="js/diseno.js"></script>
-</body>
-</html>
+<section id="vLogin" class="caja"><h2>Acceso del equipo</h2><form id="fLogin">
+<label>Correo<input id="c" type="email" autocomplete="username" required></label>
+<label>Contraseña<span class="campo"><input id="k" type="password" autocomplete="current-password" required><button type="button" class="ojo" aria-label="Mostrar contraseña">👁</button></span></label>
+<label>Código de 6 dígitos (app autenticadora)<input id="o" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required></label>
+<p id="m" class="msg" role="alert"></p><button class="btn grande">Entrar</button></form></section>
+<section id="vPanel" class="caja ancha panel" hidden>
+<p>Hola, <b id="quien"></b> · rol: <b id="rol"></b></p>
+<div class="tabs" id="menu"></div><div id="cont"></div></section></main>
+<script src="../js/config.js"></script><script src="admin.js"></script></body></html>
