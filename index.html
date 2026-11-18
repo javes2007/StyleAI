@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex,nofollow"><title>Panel · Asesor de Imagen</title>
-<link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/admin.css"></head>
-<body><header class="top"><span class="logo">Panel<span>·</span>Admin</span><nav><button id="btnTema" class="icono" aria-label="Modo claro u oscuro">◐</button><button id="btnSalir" class="btn suave" hidden>Salir</button></nav></header>
+<meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#6d42d8"><title>Panel · StyleAI</title>
+<link rel="stylesheet" href="global.css"><link rel="stylesheet" href="admin.css"></head>
+<body><header class="top"><span class="logo">StyleAI<span>·</span>Panel</span><nav><button id="btnTema" class="icono" aria-label="Modo claro u oscuro">◐</button><button id="btnSalir" class="btn suave" hidden>Salir</button></nav></header>
 <main>
-<section id="vLogin" class="caja"><h2>Acceso del equipo</h2><form id="fLogin">
+<section id="vLogin" class="caja"><h2>Acceso del equipo</h2><p>Ingresa con tus credenciales para administrar StyleAI.</p><form id="fLogin">
 <label>Correo<input id="c" type="email" autocomplete="username" required></label>
 <label>Contraseña<span class="campo"><input id="k" type="password" autocomplete="current-password" required><button type="button" class="ojo" aria-label="Mostrar contraseña">👁</button></span></label>
 <label>Código de 6 dígitos (app autenticadora)<input id="o" inputmode="numeric" pattern="[0-9]{6}" maxlength="6" autocomplete="one-time-code" required></label>
-<p id="m" class="msg" role="alert"></p><button class="btn grande">Entrar</button></form></section>
+<p id="m" class="msg" role="alert"></p><button class="btn grande" type="submit">Entrar al panel</button></form></section>
 <section id="vPanel" class="caja ancha panel" hidden>
 <p>Hola, <b id="quien"></b> · rol: <b id="rol"></b></p>
 <div class="tabs" id="menu"></div><div id="cont"></div></section></main>
-<script src="../js/config.js"></script><script src="admin.js"></script></body></html>
+<script src="config.js"></script><script src="admin.js"></script></body></html>
